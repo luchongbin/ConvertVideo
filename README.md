@@ -1,5 +1,60 @@
 # ConvertVideo
 视频压缩工具
+## 使用说明  
+1、Add the JitPack repository to your build file
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+2、Add the dependency
+```
+dependencies {
+	        implementation 'com.github.luchongbin:ConvertVideo:v1.0.0'
+	}
+```
+3、别忘了添加权限（6.0以上需要动态申请喽）  
+```
+ <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+ <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+ ```
+4、在你需要的地方使用下流代码
+```
+/**
+     *
+     * @param srcPath  输入视频路径
+     * @param destPath  输出视频路径
+     * @param outputWidth 输出视频宽度
+     * @param outputHeight 输出视频高度
+     * @param bitrate   视频码率(值也大 文件越大 视频质量越好)
+     * @param listener
+     * @return
+     */
+ VideoLCB.convertVideo(srcPath, destPath, 720, 1280, 720 * 1280 * 7, new VideoLCB.ProgressListener() {
+                        @Override
+                        public void onStart() {
+                           
+
+                        }
+
+                        @Override
+                        public void onFinish(boolean result) {
+                           
+                        }
+
+
+                        @Override
+                        public void onProgress(float percent) {
+                          
+                        }
+                    });
+``` 
+
+### 最后特别说明 本文参考https://github.com/zolad/VideoSlimmer.git 所改写
+
 ## License
 ```
 MIT License
